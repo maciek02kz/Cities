@@ -1,6 +1,32 @@
-import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState, useEffect } from "react";
+import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native";
 
 export default function Index() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    const preloadAssets = async () => {
+      try {
+        // Simulate a short delay to mimic asset loading
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        setIsLoaded(true);
+      } catch (error) {
+        console.error("Error loading assets:", error);
+      }
+    };
+
+    preloadAssets();
+  }, []);
+
+  if (!isLoaded) {
+    // Show a loading spinner while assets are being loaded
+    return (
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color="#000" />
+      </View>
+    );
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Hero Section */}
@@ -41,6 +67,12 @@ export default function Index() {
 }
 
 const styles = StyleSheet.create({
+  loaderContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#fff",
+  },
   container: {
     flexGrow: 1,
     backgroundColor: "#fff",
