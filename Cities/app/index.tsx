@@ -1,12 +1,8 @@
 import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
-import MenuBar from "./components/MenuBar";
 
 export default function Index() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* Top Menu */}
-      <MenuBar />
-
       {/* Hero Section */}
       <View style={styles.heroSection}>
         <Text style={styles.title}>
