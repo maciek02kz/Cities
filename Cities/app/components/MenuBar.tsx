@@ -15,11 +15,7 @@ export default function MenuBar() {
       </TouchableOpacity>
       <Text style={styles.separator}>/</Text>
       <TouchableOpacity onPress={() => router.push("/download")}>
-        <Text style={styles.menuItem}>HOW TO DOWNLOAD</Text>
-      </TouchableOpacity>
-      <Text style={styles.separator}>/</Text>
-      <TouchableOpacity onPress={() => router.push("/contact")}>
-        <Text style={styles.menuItem}>CONTACT</Text>
+        <Text style={styles.menuItem}>DOWNLOAD CITIES</Text>
       </TouchableOpacity>
     </View>
   );

@@ -1,33 +1,44 @@
-import { ScrollView, Text, View, Image, StyleSheet } from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import MenuBar from "./components/MenuBar";
 
 export default function Index() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      {/* App Images Section */}
-      <View style={styles.imageSection}>
-        <Text style={styles.sectionTitle}>Welcome to Cities</Text>
-        <Image
-          source={require("../assets/images/app-screenshot1.png")}
-          style={styles.image}
-        />
-        <Image
-          source={require("../assets/images/app-screenshot2.png")}
-          style={styles.image}
-        />
-        <Image
-          source={require("../assets/images/app-screenshot3.png")}
-          style={styles.image}
-        />
+      {/* Top Menu */}
+      <MenuBar />
+
+      {/* Hero Section */}
+      <View style={styles.heroSection}>
+        <Text style={styles.title}>
+          Track and share your favorite cities with your friends
+        </Text>
+        <Text style={styles.subtitle}>
+          DOWNLOAD NOW ON THE APP STORE AND PLAY STORE
+        </Text>
+
+        {/* App Store Buttons */}
+        <View style={styles.storeButtons}>
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/app-store.png")}
+              style={styles.storeButton}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={require("../assets/images/google-play.png")}
+              style={styles.storeButton}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
 
-      {/* About Section */}
-      <View style={styles.aboutSection}>
-        <Text style={styles.sectionTitle}>About the App</Text>
-        <Text style={styles.aboutText}>
-          Cities is your go-to app for exploring and discovering amazing places
-          around the world. Navigate through the app to find hidden gems, plan
-          your trips, and share your experiences with others.
-        </Text>
+      {/* App Screenshot */}
+      <View style={styles.screenshotSection}>
+        <Image
+          source={require("../assets/images/app-screenshot-phone.png")}
+          style={styles.phoneImage}
+        />
       </View>
     </ScrollView>
   );
@@ -36,36 +47,45 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    padding: 20,
-    backgroundColor: "#f5f5f5",
-  },
-  imageSection: {
-    marginBottom: 30,
+    backgroundColor: "#fff",
     alignItems: "center",
+    justifyContent: "flex-start",
+    paddingBottom: 50, // Add padding to prevent content from being cut off
   },
-  sectionTitle: {
+  heroSection: {
+    alignItems: "center",
+    marginTop: 50,
+    paddingHorizontal: 20,
+  },
+  title: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 10,
+    textAlign: "center",
+    marginBottom: 20,
   },
-  image: {
-    width: 300,
-    height: 200,
-    resizeMode: "contain",
-    marginBottom: 10,
-  },
-  aboutSection: {
-    padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 10,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    shadowOffset: { width: 0, height: 2 },
-  },
-  aboutText: {
+  subtitle: {
     fontSize: 16,
-    lineHeight: 24,
-    color: "#333",
+    textAlign: "center",
+    color: "#555",
+    marginBottom: 30,
+  },
+  storeButtons: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 50,
+  },
+  storeButton: {
+    width: 150,
+    height: 50,
+    resizeMode: "contain",
+    marginHorizontal: 10,
+  },
+  screenshotSection: {
+    alignItems: "center",
+  },
+  phoneImage: {
+    width: 300,
+    height: 600,
+    resizeMode: "contain",
   },
 });
