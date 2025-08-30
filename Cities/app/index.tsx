@@ -7,7 +7,6 @@ export default function Index() {
   useEffect(() => {
     const preloadAssets = async () => {
       try {
-        // Simulate a short delay to mimic asset loading
         await new Promise((resolve) => setTimeout(resolve, 500));
         setIsLoaded(true);
       } catch (error) {
@@ -19,7 +18,6 @@ export default function Index() {
   }, []);
 
   if (!isLoaded) {
-    // Show a loading spinner while assets are being loaded
     return (
       <View style={styles.loaderContainer}>
         <ActivityIndicator size="large" color="#000" />
@@ -78,7 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start",
-    paddingBottom: 50, // Add padding to prevent content from being cut off
+    paddingBottom: 50,
   },
   heroSection: {
     alignItems: "center",
@@ -103,8 +101,8 @@ const styles = StyleSheet.create({
     marginBottom: 50,
   },
   storeButton: {
-    width: 150,
-    height: 50,
+    width: 200, // Increased width
+    height: 70, // Increased height
     resizeMode: "contain",
     marginHorizontal: 10,
   },
