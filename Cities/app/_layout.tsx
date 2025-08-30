@@ -1,5 +1,11 @@
 import { Stack } from "expo-router";
+import MenuBar from "./components/MenuBar";
 
 export default function RootLayout() {
-  return <Stack />;
+  return (
+    <>
+      <MenuBar />
+      <Stack />
+    </>
+  );
 }
