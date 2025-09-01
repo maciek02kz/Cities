@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native";
+import { ScrollView, View, Text, Image, StyleSheet, TouchableOpacity, ActivityIndicator, Platform, Dimensions } from "react-native";
+
+const { width } = Dimensions.get("window");
 
 export default function Index() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const isSmallScreen = width < 768;
 
   useEffect(() => {
     const preloadAssets = async () => {
@@ -30,7 +33,9 @@ export default function Index() {
       {/* Hero Section */}
       <View style={styles.heroSection}>
         <Text style={styles.title}>
-          Track and share your favorite cities with your friends
+          {isSmallScreen
+            ? "Welcome Mobile Users!"
+            : "Welcome Desktop or Tablet Users!"}
         </Text>
         <Text style={styles.subtitle}>
           DOWNLOAD NOW ON THE APP STORE AND PLAY STORE
