@@ -14,8 +14,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ededed;
+    --foreground: #000000;
   }
 }
 
@@ -23,4 +23,24 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Interactive logo styles */
+.logo {
+  display: inline-block;
+  transition: transform 220ms cubic-bezier(.2,.8,.2,1), filter 220ms;
+  transform-origin: center center;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.logo:hover,
+.logo:active,
+.logo:focus-visible {
+  transform: scale(1.12);
+}
+
+/* Class used when activated programmatically (click/keyboard) */
+.logo--enlarged {
+  transform: scale(1.22) !important;
 }
